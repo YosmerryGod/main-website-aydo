@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111210">
+  <meta name="description" content="AYDO — semua alat hitung dalam satu aplikasi. Praktis, ringan, dan dirancang untuk kebutuhan sehari-hari.">
+  <title>AYDO — Simple Tools. Big Possibilities.</title>
+  <style>
+    :root{color-scheme:dark;--bg:#111210;--panel:#191a17;--panel2:#20211d;--text:#f5f1e8;--muted:#aaa99f;--line:rgba(255,255,255,.09);--gold:#e8c98d;--gold2:#f5dfb4;--shadow-dark:10px 10px 28px rgba(0,0,0,.42),-7px -7px 22px rgba(255,255,255,.025);--shadow-inset:inset 4px 4px 10px rgba(0,0,0,.3),inset -3px -3px 9px rgba(255,255,255,.025);--hero-glow:rgba(210,169,99,.13)}
+    [data-theme="light"]{color-scheme:light;--bg:#eeede8;--panel:#f4f3ee;--panel2:#e9e8e1;--text:#20211e;--muted:#77786f;--line:rgba(30,30,25,.1);--gold:#9b7135;--gold2:#765323;--shadow-dark:10px 10px 26px rgba(30,30,25,.10),-8px -8px 22px rgba(255,255,255,.9);--shadow-inset:inset 4px 4px 9px rgba(30,30,25,.08),inset -3px -3px 8px rgba(255,255,255,.8);--hero-glow:rgba(184,139,70,.12)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;transition:background .3s,color .3s}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1180px,calc(100% - 48px));margin:auto}.site-header{height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{font-size:27px;letter-spacing:.28em;font-weight:750;color:var(--gold);padding-left:4px}.nav{display:flex;align-items:center;gap:36px;color:var(--muted);font-size:13px}.nav a:hover{color:var(--text)}.header-actions{display:flex;align-items:center;gap:14px}.theme-toggle{border:1px solid var(--line);background:var(--panel);box-shadow:var(--shadow-dark);border-radius:30px;padding:5px;display:flex;gap:4px}.theme-toggle button{width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:var(--muted);cursor:pointer}.theme-toggle button.active{background:var(--gold);color:#171611}.btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;padding:15px 23px;border-radius:999px;background:linear-gradient(135deg,#f4dfb7,#d8b779);color:#211b11;font-size:13px;font-weight:750;box-shadow:0 8px 26px rgba(205,163,93,.2);transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(205,163,93,.3)}.btn-quiet{background:var(--panel);color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow-dark)}.menu-btn{display:none;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;padding:10px 12px}
+    .hero{position:relative;overflow:hidden;min-height:590px;border-radius:0 0 34px 34px;background:radial-gradient(ellipse at 75% 42%,var(--hero-glow),transparent 42%),linear-gradient(135deg,var(--bg),var(--panel));border:1px solid var(--line);box-shadow:var(--shadow-dark);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:68px 7%;gap:36px}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:99px;padding:7px 12px;color:var(--gold);font-size:10px;letter-spacing:.15em;text-transform:uppercase}.eyebrow:before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}h1{font-size:clamp(42px,5.3vw,70px);line-height:1.02;letter-spacing:-.055em;margin:22px 0 20px;max-width:600px}h1 span{color:var(--gold)}.lead{font-size:16px;line-height:1.75;color:var(--muted);max-width:490px}.hero-ctas{display:flex;gap:13px;flex-wrap:wrap;margin:30px 0}.trust{display:flex;gap:23px;flex-wrap:wrap;color:var(--muted);font-size:11px}.trust span{display:flex;align-items:center;gap:8px}.trust i{font-style:normal;color:var(--gold);font-size:15px}.visual{position:relative;min-height:450px;display:flex;align-items:center;justify-content:center}.phone{width:245px;height:475px;border:1px solid rgba(255,255,255,.22);border-radius:38px;padding:10px;background:linear-gradient(145deg,#30312d,#080908 60%,#45443d);box-shadow:24px 30px 70px rgba(0,0,0,.5),inset 2px 2px 4px rgba(255,255,255,.2);transform:rotate(7deg);position:relative;z-index:2}.phone-screen{height:100%;border-radius:29px;background:linear-gradient(155deg,#20211e,#111210);padding:25px 15px;color:#f5f1e8;overflow:hidden}.phone-top{display:flex;justify-content:space-between;font-size:8px;color:#a6a69c}.phone-logo{font-size:24px;letter-spacing:.22em;color:#e8c98d;margin:28px 0 7px}.phone-caption{font-size:10px;color:#aaa99f}.search{margin:20px 0 14px;padding:12px;border-radius:15px;background:#171815;box-shadow:inset 3px 3px 7px #090a09,inset -2px -2px 5px #292a25;color:#77786f;font-size:9px}.chips{display:flex;gap:6px;margin-bottom:13px}.chips b{font-size:8px;font-weight:500;padding:7px 9px;border-radius:20px;background:#292a25;color:#ddd}.chips b:first-child{background:#e8c98d;color:#211b11}.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.tool{height:83px;border-radius:16px;background:linear-gradient(145deg,#262722,#171815);box-shadow:5px 5px 12px #0d0e0c,-3px -3px 8px #30312b;padding:13px 10px;font-size:9px;color:#e8e5dc}.tool strong{display:block;font-size:20px;color:#e8c98d;margin-bottom:8px}.phone-nav{display:flex;justify-content:space-around;margin-top:19px;color:#aaa;font-size:8px}.phone-nav b{color:#e8c98d}.orbit-card{position:absolute;right:-4%;bottom:32px;width:160px;height:160px;border-radius:32px;background:linear-gradient(145deg,var(--panel2),var(--bg));box-shadow:var(--shadow-dark);display:grid;place-items:center;transform:rotate(-9deg);z-index:1}.orbit-card span{font-size:82px;font-weight:800;color:var(--gold);text-shadow:0 8px 20px rgba(0,0,0,.3)}.scribble{position:absolute;right:-2%;top:9%;font-family:Georgia,serif;font-style:italic;color:var(--gold);font-size:22px;transform:rotate(-8deg)}
+    section{padding:100px 0}.section-head{max-width:480px}.section-head h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.045em;line-height:1.08;margin:18px 0 12px}.section-head p{color:var(--muted);line-height:1.7;font-size:14px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}.feature{padding:26px 23px;border-radius:24px;background:var(--panel);box-shadow:var(--shadow-dark);border:1px solid var(--line);min-height:190px}.feature-icon{width:45px;height:45px;border-radius:15px;display:grid;place-items:center;background:var(--panel2);box-shadow:var(--shadow-inset);color:var(--gold);font-size:20px;margin-bottom:23px}.feature h3{font-size:15px;margin:0 0 9px}.feature p{font-size:12px;line-height:1.65;color:var(--muted);margin:0}
+    .showcase{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}.showcase-panel{border-radius:30px;padding:40px;background:var(--panel);box-shadow:var(--shadow-dark);border:1px solid var(--line);overflow:hidden;position:relative}.showcase-panel.dark-panel{background:linear-gradient(145deg,#191a17,#10110f);color:#f5f1e8}.showcase-panel h2{font-size:34px;letter-spacing:-.04em;line-height:1.1;margin:18px 0}.showcase-panel p{font-size:13px;line-height:1.7;color:var(--muted);max-width:370px}.mode-samples{display:flex;gap:15px;margin-top:25px}.sample{flex:1;min-width:0;border-radius:20px;padding:16px;background:var(--panel2);box-shadow:var(--shadow-inset);font-size:10px}.sample.light-sample{background:#eeede8;color:#222}.sample.dark-sample{background:#111210;color:#f5f1e8}.sample strong{display:block;font-size:12px;margin-bottom:12px}.sample div{padding:10px 8px;border-radius:10px;margin-top:7px;background:rgba(130,130,120,.12)}
+    .download{padding:0 0 100px}.download-card{border-radius:32px;padding:54px 6%;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:radial-gradient(ellipse at 90% 20%,var(--hero-glow),transparent 50%),var(--panel);box-shadow:var(--shadow-dark);border:1px solid var(--line)}.download-card h2{font-size:clamp(32px,4vw,48px);letter-spacing:-.05em;margin:16px 0 12px}.download-card p{color:var(--muted);font-size:14px;line-height:1.7;max-width:520px}.download-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:var(--muted);font-size:11px}.download-meta span{display:flex;align-items:center;gap:7px}.download-side{padding:25px;border-radius:23px;background:var(--panel2);box-shadow:var(--shadow-inset);text-align:center}.download-side .big-icon{font-size:46px;color:var(--gold)}.download-side p{font-size:11px;margin:8px auto 18px}.download-side .btn{width:100%}
+    .faq{max-width:800px;margin:0 auto}.faq details{border-bottom:1px solid var(--line);padding:20px 4px}.faq summary{cursor:pointer;font-size:14px;font-weight:650}.faq details p{font-size:13px;line-height:1.7;color:var(--muted)}footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:11px}.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-brand{letter-spacing:.25em;color:var(--gold);font-size:19px;font-weight:750}
+    @media(max-width:900px){.nav{gap:20px}.hero{padding:55px 5%;grid-template-columns:1fr  .85fr}.phone{transform:scale(.88) rotate(7deg)}.features{grid-template-columns:repeat(2,1fr)}.orbit-card{right:-10%;transform:scale(.8) rotate(-9deg)}}
+    @media(max-width:640px){.wrap{width:min(100% - 32px,480px)}.site-header{height:70px}.brand{font-size:23px}.nav{display:none;position:absolute;top:66px;left:16px;right:16px;padding:18px;border-radius:20px;background:var(--panel);box-shadow:var(--shadow-dark);border:1px solid var(--line);z-index:10;flex-direction:column;align-items:stretch;gap:0}.nav.open{display:flex}.nav a{padding:13px 8px}.header-actions{gap:8px}.header-actions>.btn{display:none}.theme-toggle button{width:31px;height:31px}.menu-btn{display:block}.hero{width:100%;border-radius:0 0 25px 25px;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:48px 24px 28px;min-height:0}.hero-copy{position:relative;z-index:3}.hero h1{font-size:clamp(43px,12vw,58px);margin-top:19px}.lead{font-size:14px}.hero-ctas{margin:24px 0;gap:10px}.hero-ctas .btn{padding:14px 17px;font-size:12px}.trust{gap:13px;font-size:10px}.visual{min-height:365px;margin-top:5px}.phone{width:205px;height:395px;transform:rotate(5deg) scale(.9)}.phone-screen{padding:21px 12px}.phone-logo{margin-top:20px}.tool{height:70px}.orbit-card{width:112px;height:112px;right:0;bottom:12px;border-radius:25px}.orbit-card span{font-size:60px}.scribble{right:0;top:2%;font-size:16px}section{padding:72px 0}.section-head h2{font-size:34px}.features{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}.feature{padding:19px 16px;min-height:175px;border-radius:20px}.feature-icon{width:40px;height:40px;margin-bottom:18px}.feature h3{font-size:13px}.feature p{font-size:11px}.showcase{grid-template-columns:1fr;gap:14px}.showcase-panel{padding:27px 22px;border-radius:24px}.showcase-panel h2{font-size:30px}.download{padding:0 0 72px}.download-card{grid-template-columns:1fr;padding:30px 23px;border-radius:25px;gap:22px}.download-card h2{font-size:36px}.download-card p{font-size:13px}.download-side{padding:22px}.footer-inner{flex-direction:column;align-items:flex-start}.footer-inner span:last-child{line-height:1.6}}
+    @media(max-width:360px){.wrap{width:calc(100% - 24px)}.hero{padding-left:18px;padding-right:18px}.hero-ctas .btn{width:100%}.features{grid-template-columns:1fr}.feature{min-height:0}.trust{display:grid;grid-template-columns:1fr 1fr}.phone{transform:rotate(5deg) scale(.82)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="site-header wrap">
+    <a class="brand" href="#beranda" aria-label="AYDO Beranda">AYDO</a>
+    <nav class="nav" id="nav" aria-label="Navigasi utama">
+      <a href="#beranda">Beranda</a><a href="#fitur">Fitur</a><a href="#tampilan">Tampilan</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-actions">
+      <div class="theme-toggle" aria-label="Pilih tema">
+        <button id="lightBtn" class="active" type="button" aria-label="Mode terang" title="Mode terang">☼</button>
+        <button id="darkBtn" type="button" aria-label="Mode gelap" title="Mode gelap">☾</button>
+      </div>
+      <a class="btn" href="#download">↓ <span>Download APK</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Buka menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+  <main>
+    <div class="wrap" id="beranda">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">AYDO · Everyday utility</span>
+          <h1>Semua alat hitung dalam <span>satu aplikasi.</span></h1>
+          <p class="lead">Satu ruang untuk berbagai kebutuhan hitung harian. Praktis, ringan, dan dirancang supaya hal kecil terasa lebih mudah.</p>
+          <div class="hero-ctas"><a class="btn" href="#download">↓ Download APK <span>↗</span></a><a class="btn btn-quiet" href="#fitur">Jelajahi fitur <span>↘</span></a></div>
+          <div class="trust"><span><i>✳</i> Gratis digunakan</span><span><i>◈</i> Ringan & cepat</span><span><i>↻</i> Terus berkembang</span></div>
+        </div>
+        <div class="visual" aria-label="Ilustrasi tampilan aplikasi AYDO">
+          <div class="scribble">Simple tools.<br>Big possibilities.</div>
+          <div class="phone"><div class="phone-screen">
+            <div class="phone-top"><span>9:41</span><span>● ◖ ▰</span></div><div class="phone-logo">AYDO</div><div class="phone-caption">Temukan alat hitung yang kamu butuhkan.</div>
+            <div class="search">⌕ &nbsp; Cari alat hitung...</div><div class="chips"><b>Semua</b><b>Keuangan</b><b>Harian</b></div>
+            <div class="tool-grid"><div class="tool"><strong>＋</strong>Kalkulator standar</div><div class="tool"><strong>％</strong>Kalkulator persentase</div><div class="tool"><strong>◫</strong>Kalkulator keuangan</div><div class="tool"><strong>⌁</strong>Kalkulator harian</div><div class="tool"><strong>↗</strong>Konversi satuan</div><div class="tool"><strong>◷</strong>Alat praktis</div></div>
+            <div class="phone-nav"><b>⌂ Beranda</b><span>▦ Kategori</span><span>♡ Favorit</span></div>
+          </div></div>
+          <div class="orbit-card"><span>A</span></div>
+        </div>
+      </section>
+    </div>
+    <section id="fitur">
+      <div class="wrap">
+        <div class="section-head"><span class="eyebrow">Dibuat untuk keseharian</span><h2>Praktis. Lengkap.<br>Tanpa terasa rumit.</h2><p>Berbagai alat hitung dalam satu aplikasi, dengan pengalaman yang fokus pada hal terpenting: menyelesaikan kebutuhanmu.</p></div>
+        <div class="features">
+          <article class="feature"><div class="feature-icon">⌗</div><h3>Banyak alat hitung</h3><p>Beragam kalkulator untuk kebutuhan harian dalam satu tempat.</p></article>
+          <article class="feature"><div class="feature-icon">◇</div><h3>Mudah digunakan</h3><p>Navigasi sederhana dan tampilan yang nyaman dipahami.</p></article>
+          <article class="feature"><div class="feature-icon">⌁</div><h3>Ringan & cepat</h3><p>Pengalaman praktis tanpa tampilan yang berlebihan.</p></article>
+          <article class="feature"><div class="feature-icon">↻</div><h3>Terus berkembang</h3><p>Penyempurnaan dan fitur baru hadir secara berkala.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="tampilan" style="padding-top:10px">
+      <div class="wrap showcase">
+        <article class="showcase-panel dark-panel"><span class="eyebrow">Your space, your style</span><h2>Terang atau gelap.<br>Tetap nyaman.</h2><p>Pilih suasana yang cocok untukmu. Detail lembut, kontras terukur, dan antarmuka neumorphic yang terasa konsisten.</p><div class="mode-samples"><div class="sample dark-sample"><strong>☾ Dark mode</strong><div>Hitung dengan fokus</div><div>Desain lebih tenang</div></div><div class="sample light-sample"><strong>☼ Light mode</strong><div>Ruang yang lapang</div><div>Nyaman di siang hari</div></div></div></article>
+        <article class="showcase-panel"><span class="eyebrow">Made to feel simple</span><h2>Lebih sedikit distraksi. Lebih banyak yang selesai.</h2><p>AYDO dirancang agar alat yang kamu cari terasa dekat, jelas, dan siap dipakai kapan saja.</p><div style="margin-top:28px;padding:24px;border-radius:22px;background:var(--panel2);box-shadow:var(--shadow-inset)"><div style="display:flex;justify-content:space-between;color:var(--muted);font-size:11px"><span>AYDO / QUICK ACCESS</span><span>✦</span></div><div style="font-size:32px;letter-spacing:-.04em;margin:22px 0 5px">Sederhana,</div><div style="font-size:32px;letter-spacing:-.04em;color:var(--gold)">bukan seadanya.</div></div></article>
+      </div>
+    </section>
+    <section class="download" id="download">
+      <div class="wrap download-card">
+        <div><span class="eyebrow">Tersedia untuk Android</span><h2>Mulai gunakan<br><span style="color:var(--gold)">AYDO hari ini.</span></h2><p>Semua alat praktis dalam satu aplikasi. Unduh APK dan nikmati pengalaman AYDO langsung dari perangkat Android kamu.</p><a class="btn" href="https://github.com/YosmerryGod/Xkalkultor/releases/download/v1.0.0/xkalkultor-release.apk" target="_blank" rel="noopener">↓ Download APK <span>↗</span></a><div class="download-meta"><span>◈ Android</span><span>✓ Gratis digunakan</span><span>↻ Update berkala</span></div></div>
+        <aside class="download-side"><div class="big-icon">A</div><strong>AYDO untuk Android</strong><p>File APK · Unduh melalui GitHub Releases</p><a class="btn btn-quiet" href="https://github.com/YosmerryGod/Xkalkultor/releases/tag/v1.0.0" target="_blank" rel="noopener">Lihat detail rilis ↗</a></aside>
+      </div>
+    </section>
+    <section id="faq" style="padding-top:0"><div class="wrap faq"><div class="section-head"><span class="eyebrow">Pertanyaan umum</span><h2>Yang perlu kamu tahu.</h2></div>
+      <details><summary>Apakah AYDO gratis digunakan?</summary><p>Ya. AYDO dapat diunduh dan digunakan secara gratis.</p></details>
+      <details><summary>Bagaimana cara memasang APK?</summary><p>Unduh file APK melalui tombol Download. Buka file di perangkat Android dan izinkan pemasangan dari sumber tersebut jika Android memintanya.</p></details>
+      <details><summary>Apakah tersedia mode terang dan gelap?</summary><p>Ya. Gunakan tombol tema di bagian atas halaman untuk melihat kedua tampilan.</p></details>
+    </div></section>
+  </main>
+  <footer><div class="wrap footer-inner"><span class="footer-brand">AYDO</span><span>Simple tools. Big possibilities.</span><span>© <span id="year"></span> AYDO. Dibuat untuk keseharian.</span></div></footer>
+  <script>
+    const root=document.documentElement;
+    const lightBtn=document.getElementById('lightBtn');
+    const darkBtn=document.getElementById('darkBtn');
+    function setTheme(theme){root.dataset.theme=theme;const dark=theme==='dark';lightBtn.classList.toggle('active',!dark);darkBtn.classList.toggle('active',dark);document.querySelector('meta[name="theme-color"]').content=dark?'#111210':'#eeede8';}
+    lightBtn.addEventListener('click',()=>setTheme('light'));
+    darkBtn.addEventListener('click',()=>setTheme('dark'));
+    const menuBtn=document.getElementById('menuBtn');
+    const nav=document.getElementById('nav');
+    menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));menuBtn.textContent=open?'×':'☰';});
+    nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');menuBtn.textContent='☰';}));
+    document.getElementById('year').textContent=new Date().getFullYear();
+  </script>
+</body>
+</html>
