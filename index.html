@@ -193,8 +193,39 @@
   <footer class="slide-section"><div class="wrap footer"><div class="footer-brand">AYDO<span>.</span></div><div class="footer-copy">HITUNG HARGA LEBIH TEPAT UNTUK MERCHANT.</div><div class="footer-copy">© <span id="year"></span> AYDO. HAK CIPTA DILINDUNGI.</div></div></footer>
   <script>
     const pageScroll=document.getElementById('pageScroll');
-    const slideObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&entry.intersectionRatio>=0.55){document.querySelectorAll('.slide-section').forEach(slide=>slide.classList.remove('is-active'));entry.target.classList.add('is-active');}});},{root:pageScroll,threshold:[0.55,0.7]});
-    document.querySelectorAll('.slide-section').forEach((slide,index)=>{if(index===0)slide.classList.add('is-active');slideObserver.observe(slide);});
+    const slideSections=[...document.querySelectorAll('.slide-section')];
+    let activeSlide=null;
+    let scrollFrame=null;
+    function updateActiveSlide(){
+      scrollFrame=null;
+      const viewportRect=pageScroll.getBoundingClientRect();
+      const viewportCenter=viewportRect.top+viewportRect.height/2;
+      let closestSlide=null;
+      let closestDistance=Infinity;
+      slideSections.forEach(slide=>{
+        const rect=slide.getBoundingClientRect();
+        const visibleTop=Math.max(rect.top,viewportRect.top);
+        const visibleBottom=Math.min(rect.bottom,viewportRect.bottom);
+        if(visibleBottom<=visibleTop)return;
+        const slideCenter=(visibleTop+visibleBottom)/2;
+        const distance=Math.abs(slideCenter-viewportCenter);
+        if(distance<closestDistance){
+          closestDistance=distance;
+          closestSlide=slide;
+        }
+      });
+      if(closestSlide&&closestSlide!==activeSlide){
+        activeSlide=closestSlide;
+        slideSections.forEach(slide=>slide.classList.toggle('is-active',slide===activeSlide));
+      }
+    }
+    function requestActiveSlideUpdate(){
+      if(scrollFrame===null)scrollFrame=requestAnimationFrame(updateActiveSlide);
+    }
+    pageScroll.addEventListener('scroll',requestActiveSlideUpdate,{passive:true});
+    window.addEventListener('resize',requestActiveSlideUpdate);
+    slideSections.forEach((slide,index)=>{if(index===0){slide.classList.add('is-active');activeSlide=slide;}});
+    requestActiveSlideUpdate();
     const root=document.documentElement;
     const themeToggle=document.getElementById('themeToggle');
     function applyTheme(theme){root.dataset.theme=theme;themeToggle.textContent=theme==='dark'?'☾':'☼';themeToggle.setAttribute('aria-label',theme==='dark'?'Ganti ke mode terang':'Ganti ke mode gelap');document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#191e24':'#edf0f2';}
