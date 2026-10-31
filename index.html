@@ -197,24 +197,35 @@
     const slideSections=[...document.querySelectorAll('.slide-section')];
     let activeSlide=null;
     let scrollFrame=null;
+    // [MODIFIED] Pastikan section paling atas dan paling bawah selalu aktif di batas scroll.
     function updateActiveSlide(){
       scrollFrame=null;
-      const viewportRect=pageScroll.getBoundingClientRect();
-      const viewportCenter=viewportRect.top+viewportRect.height/2;
+      const atTop=pageScroll.scrollTop<=2;
+      const atBottom=pageScroll.scrollTop+pageScroll.clientHeight>=pageScroll.scrollHeight-4;
       let closestSlide=null;
-      let closestDistance=Infinity;
-      slideSections.forEach(slide=>{
-        const rect=slide.getBoundingClientRect();
-        const visibleTop=Math.max(rect.top,viewportRect.top);
-        const visibleBottom=Math.min(rect.bottom,viewportRect.bottom);
-        if(visibleBottom<=visibleTop)return;
-        const slideCenter=(visibleTop+visibleBottom)/2;
-        const distance=Math.abs(slideCenter-viewportCenter);
-        if(distance<closestDistance){
-          closestDistance=distance;
-          closestSlide=slide;
-        }
-      });
+
+      if(atTop){
+        closestSlide=slideSections[0];
+      }else if(atBottom){
+        closestSlide=slideSections[slideSections.length-1];
+      }else{
+        const viewportRect=pageScroll.getBoundingClientRect();
+        const viewportCenter=viewportRect.top+viewportRect.height/2;
+        let closestDistance=Infinity;
+        slideSections.forEach(slide=>{
+          const rect=slide.getBoundingClientRect();
+          const visibleTop=Math.max(rect.top,viewportRect.top);
+          const visibleBottom=Math.min(rect.bottom,viewportRect.bottom);
+          if(visibleBottom<=visibleTop)return;
+          const slideCenter=(visibleTop+visibleBottom)/2;
+          const distance=Math.abs(slideCenter-viewportCenter);
+          if(distance<closestDistance){
+            closestDistance=distance;
+            closestSlide=slide;
+          }
+        });
+      }
+
       if(closestSlide&&closestSlide!==activeSlide){
         activeSlide=closestSlide;
         slideSections.forEach(slide=>slide.classList.toggle('is-active',slide===activeSlide));
