@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#edf0f2">
-  <meta name="description" content="AYDO helps merchants price with confidence. Calculate the selling price you need from your target net amount and platform admin fees.">
-  <title>AYDO — Price With Confidence</title>
+  <meta name="description" content="AYDO membantu merchant menentukan harga jual dari target harga bersih dan biaya admin platform.">
+  <title>AYDO — Hitung Harga, Lebih Yakin</title>
   <style>
     :root{color-scheme:light;--white:#fff;--paper:#f5f5f5;--ink:#111;--muted:#777;--line:#dedede;--accent:#e56f50;--black:#080808;--max:1440px}
     *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--white);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input{font:inherit}.wrap{width:min(var(--max),calc(100% - 80px));margin:auto}
@@ -65,12 +65,13 @@
     main{display:contents}
     .wrap.slide-section{min-height:100%;display:flex;align-items:center;justify-content:center}
     .wrap.slide-section .hero{width:100%;min-height:100%;}
-    .page-scroll{height:calc(100svh - 76px);overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;overscroll-behavior-y:contain;scrollbar-width:none}
+    .page-scroll{height:calc(100svh - 76px);perspective:1800px;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;scroll-behavior:smooth;overscroll-behavior-y:contain;scrollbar-width:none}
     .page-scroll::-webkit-scrollbar{display:none}
-    .slide-section{min-height:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;position:relative;opacity:.38;transform:translateY(24px) scale(.99);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}.slide-section.is-active{opacity:1;transform:translateY(0) scale(1)}
+    .slide-section{min-height:100%;scroll-snap-align:start;scroll-snap-stop:always;display:flex;flex-direction:column;justify-content:center;position:relative;opacity:.22;transform-origin:left center;transform:rotateY(-9deg) translateX(34px) scale(.985);backface-visibility:hidden;transition:opacity .75s ease,transform .85s cubic-bezier(.2,.72,.18,1)}.slide-section.is-active{opacity:1;transform:rotateY(0) translateX(0) scale(1)}
     .slide-section>.wrap{width:min(var(--max),calc(100% - 80px))}
     .features.slide-section,.sim-section.slide-section,.closing.slide-section{padding-top:55px;padding-bottom:55px}
     footer.slide-section{min-height:42%;padding:25px 0}
+    .merchant-strip{margin-top:30px}.merchant-label{display:block;color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.15em;margin-bottom:13px}.merchant-logos{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.merchant-logos span{font-size:17px;font-weight:950;letter-spacing:-.06em;white-space:nowrap}.logo-shopee{color:#ee4d2d}.logo-gofood{color:#00a650}.logo-grab{color:#00a85a}.merchant-logos span:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:currentColor;margin:0 7px 2px 0}
     [data-theme="dark"] .feature-grid{background:transparent}
     [data-theme="dark"] .feature{background:var(--surface);color:var(--ink)}
     [data-theme="dark"] .app-calc{background:#050607;color:#fff}
@@ -79,7 +80,7 @@
     [data-theme="dark"] .sim-error{color:#ff9e87}
     [data-theme="dark"] .search-panel input{color:var(--ink)}
     @media(max-width:900px){.page-scroll{height:calc(100svh - 76px)}.slide-section{min-height:100%;height:auto}.hero.slide-section{padding-top:42px;padding-bottom:42px}.features.slide-section,.sim-section.slide-section,.closing.slide-section{padding-top:45px;padding-bottom:45px}}
-    @media(max-width:640px){header{background:var(--surface)}nav{background:var(--surface);border-color:var(--line);box-shadow:var(--shadow-out)}.theme-toggle{width:38px;height:38px}.page-scroll{height:calc(100svh - 68px);scroll-snap-type:y mandatory}.slide-section{min-height:100%;height:auto;padding-top:35px!important;padding-bottom:35px!important}.wrap.slide-section{padding-top:0!important;padding-bottom:0!important}.wrap.slide-section .hero{padding-top:32px!important;padding-bottom:32px!important}.features.slide-section,.sim-section.slide-section,.closing.slide-section{padding-top:35px!important;padding-bottom:35px!important}.feature-grid{gap:10px}.feature{border-radius:18px;box-shadow:var(--shadow-out)}.sim-panel{border-radius:22px}.closing-box{border-radius:22px}footer.slide-section{min-height:38%}.search-panel{background:var(--surface)}}
+    @media(max-width:640px){.merchant-logos{gap:13px}.merchant-logos span{font-size:14px}header{background:var(--surface)}nav{background:var(--surface);border-color:var(--line);box-shadow:var(--shadow-out)}.theme-toggle{width:38px;height:38px}.page-scroll{height:calc(100svh - 68px);scroll-snap-type:y mandatory}.slide-section{min-height:100%;height:auto;padding-top:35px!important;padding-bottom:35px!important}.wrap.slide-section{padding-top:0!important;padding-bottom:0!important}.wrap.slide-section .hero{padding-top:32px!important;padding-bottom:32px!important}.features.slide-section,.sim-section.slide-section,.closing.slide-section{padding-top:35px!important;padding-bottom:35px!important}.feature-grid{gap:10px}.feature{border-radius:18px;box-shadow:var(--shadow-out)}.sim-panel{border-radius:22px}.closing-box{border-radius:22px}footer.slide-section{min-height:38%}.search-panel{background:var(--surface)}}
     @media(prefers-reduced-motion:reduce){.page-scroll{scroll-behavior:auto;scroll-snap-type:y proximity}.slide-section{transition:none!important;opacity:1;transform:none}}
 
   </style>
@@ -87,63 +88,63 @@
 <body>
   <header class="wrap">
     <a class="brand" href="#home" aria-label="AYDO Home">AYDO<span>.</span></a>
-    <nav id="nav" aria-label="Main navigation"><a href="#home">Home</a><div class="nav-item"><a href="#features">Explore AYDO</a><div class="mega-menu"><div><strong>Merchant tools</strong><a href="#simulator">Selling price calculator</a><a href="#features">Admin fee breakdown</a></div><div><strong>Get started</strong><a href="#download">Download for Android</a><a href="#simulator">Try the live simulator</a></div></div></div><a href="#simulator">Simulator</a><a href="#download">Get the app</a></nav>
-    <div class="header-tools"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch color theme">☼</button><a class="search-link" href="#" id="searchToggle" aria-label="Search">⌕ &nbsp; SEARCH</a><a href="#simulator">Try the calculator</a><a class="btn" href="#download">Get AYDO ↗</a><button class="menu" id="menuBtn" aria-label="Open menu" aria-expanded="false">☰</button></div>
-    <div class="search-panel" id="searchPanel"><input id="searchInput" type="search" placeholder="What are you looking for?" aria-label="Search this page"></div>
+    <nav id="nav" aria-label="Navigasi utama"><a href="#home">Beranda</a><div class="nav-item"><a href="#features">Kenali AYDO</a><div class="mega-menu"><div><strong>Fitur merchant</strong><a href="#simulator">Kalkulator harga jual</a><a href="#features">Rincian biaya admin</a></div><div><strong>Mulai gunakan</strong><a href="#download">Unduh untuk Android</a><a href="#simulator">Coba simulasi langsung</a></div></div></div><a href="#simulator">Simulasi</a><a href="#download">Unduh aplikasi</a></nav>
+    <div class="header-tools"><button class="theme-toggle" id="themeToggle" type="button" aria-label="Ganti tema">☼</button><a class="search-link" href="#" id="searchToggle" aria-label="Search">⌕ &nbsp; SEARCH</a><a href="#simulator">Coba kalkulator</a><a class="btn" href="#download">Unduh AYDO ↗</a><button class="menu" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button></div>
+    <div class="search-panel" id="searchPanel"><input id="searchInput" type="search" placeholder="Apa yang ingin kamu cari?" aria-label="Cari di halaman ini"></div>
   </header>
   <div class="page-scroll" id="pageScroll">
   <main>
     <div class="wrap slide-section" id="home">
       <section class="hero" id="hero">
         <div class="hero-copy">
-          <span class="eyebrow">Smart pricing for independent merchants</span>
-          <h1>Price it <span>right.</span></h1>
-          <p>Know what to charge before your menu goes live. AYDO helps merchants calculate the selling price from a target net amount and platform admin fees.</p>
-          <div class="hero-actions"><a class="btn" href="#simulator">Calculate now <b>↘</b></a><a class="btn inverse" href="#features">Explore AYDO <b>↗</b></a></div>
-          <div class="hero-meta"><span>Built for merchants</span><span>Clear fee breakdown</span></div>
+          <span class="eyebrow">Teman hitung cerdas untuk merchant</span>
+          <h1>Pasang harga <span>tepat.</span></h1>
+          <p>Ketahui harga yang perlu dipasang sebelum menu dijual. AYDO membantu menghitung harga jual dari target uang bersih dan biaya admin platform.</p>
+          <div class="hero-actions"><a class="btn" href="#simulator">Hitung sekarang <b>↘</b></a><a class="btn inverse" href="#features">Kenali AYDO <b>↗</b></a></div>
+          <div class="hero-meta"><span>Dibuat untuk merchant</span><span>Rincian biaya jelas</span></div><div class="merchant-strip" aria-label="Platform merchant yang didukung"><span class="merchant-label">UNTUK MERCHANT DI</span><div class="merchant-logos"><span class="logo-shopee">ShopeeFood</span><span class="logo-gofood">gofood</span><span class="logo-grab">GrabFood</span></div></div>
         </div>
         <div class="product-visual" aria-label="AYDO app preview">
-          <div class="visual-label">AYDO APP / MERCHANT CALCULATOR</div>
+          <div class="visual-label">AYDO / KALKULATOR MERCHANT</div>
           <div class="app">
-            <div class="app-head"><div><div class="hello">GOOD MORNING,</div><div class="app-logo">AYDO</div></div><div class="app-icons"><div class="app-circle">☼</div><div class="app-circle">Aa</div></div></div>
-            <div class="app-grid"><div><label class="app-label">MENU NAME</label><div class="app-input"><span>◇ &nbsp; Roast Chicken</span><small>⌄</small></div></div><div><label class="app-label">NET PRICE</label><div class="app-input"><small>Rp</small><span>13,500</span></div></div></div>
-            <label class="app-label">MERCHANT PLATFORM</label><div class="app-platform"><div class="app-input"><span>▣ &nbsp; GoFood</span><small>⌄</small></div><div class="app-settings">⚙</div></div>
-            <div class="app-calc">Calculate Selling Price</div>
-            <div class="app-result"><div class="app-caption">FINAL SELLING PRICE</div><div class="app-price">Rp 17,875</div><div class="app-detail"><div class="app-row"><span>NET PRICE</span><b>Rp13,500</b></div><div class="app-row"><span>ADMIN FEE<br><small>20% + Rp1,000</small></span><strong>+ Rp4,375</strong></div></div></div>
-            <div class="app-note">A preview of the AYDO app experience</div>
+            <div class="app-head"><div><div class="hello">SELAMAT PAGI,</div><div class="app-logo">AYDO</div></div><div class="app-icons"><div class="app-circle">☼</div><div class="app-circle">Aa</div></div></div>
+            <div class="app-grid"><div><label class="app-label">NAMA MENU</label><div class="app-input"><span>◇ &nbsp; Ayam Panggang</span><small>⌄</small></div></div><div><label class="app-label">HARGA NET</label><div class="app-input"><small>Rp</small><span>13,500</span></div></div></div>
+            <label class="app-label">PLATFORM MERCHANT</label><div class="app-platform"><div class="app-input"><span>▣ &nbsp; GoFood</span><small>⌄</small></div><div class="app-settings">⚙</div></div>
+            <div class="app-calc">Hitung Harga Jual</div>
+            <div class="app-result"><div class="app-caption">HARGA JUAL FINAL</div><div class="app-price">Rp 17,875</div><div class="app-detail"><div class="app-row"><span>HARGA NET</span><b>Rp13,500</b></div><div class="app-row"><span>BIAYA ADMIN<br><small>20% + Rp1,000</small></span><strong>+ Rp4,375</strong></div></div></div>
+            <div class="app-note">Pratinjau tampilan aplikasi AYDO</div>
           </div>
         </div>
       </section>
     </div>
     <section class="features slide-section" id="features"><div class="wrap">
-      <div class="section-top"><div><span class="kicker">Made for the everyday hustle</span><h2 class="section-title">Know your cost.<br><span>Own your price.</span></h2></div><p class="section-intro">No guesswork. No confusing spreadsheets. Just a clearer view of your target net amount, platform fees, and the selling price you need.</p></div>
+      <div class="section-top"><div><span class="kicker">Dibuat untuk kebutuhan merchant</span><h2 class="section-title">Pahami biaya.<br><span>Tentukan harga.</span></h2></div><p class="section-intro">Tidak perlu menebak atau menghitung berulang kali. Lihat target uang bersih, biaya platform, dan harga jual yang perlu dipasang.</p></div>
       <div class="feature-grid">
-        <article class="feature"><span class="feature-num">01 / TARGET</span><h3>Start with net</h3><p>Set the amount you want to take home from every order.</p></article>
-        <article class="feature"><span class="feature-num">02 / FEES</span><h3>Account for admin</h3><p>Add the platform percentage and fixed fee that apply to your account.</p></article>
-        <article class="feature"><span class="feature-num">03 / PRICE</span><h3>See what to charge</h3><p>Get the selling price needed to reach your target after admin fees.</p></article>
+        <article class="feature"><span class="feature-num">01 / TARGET</span><h3>Mulai dari harga net</h3><p>Tentukan uang bersih yang ingin kamu terima dari setiap pesanan.</p></article>
+        <article class="feature"><span class="feature-num">02 / FEES</span><h3>Hitung biaya admin</h3><p>Masukkan persentase potongan dan biaya tetap sesuai pengaturan akun platform.</p></article>
+        <article class="feature"><span class="feature-num">03 / PRICE</span><h3>Ketahui harga jual</h3><p>Dapatkan harga jual yang dibutuhkan agar target bersih tetap tercapai setelah biaya admin.</p></article>
       </div>
     </div></section>
     <section class="sim-section slide-section" id="simulator"><div class="wrap sim-layout">
-      <div><span class="kicker">Try it · Free</span><h2 class="section-title">Run the numbers.<br><span>Set your price.</span></h2><p class="section-intro">Enter your target net amount, admin percentage, and fixed fee. This calculator includes admin fees only — no promotions, discounts, or other charges.</p></div>
+      <div><span class="kicker">Coba simulasi · Gratis</span><h2 class="section-title">Hitung dengan tepat.<br><span>Tentukan harga.</span></h2><p class="section-intro">Masukkan target harga net, persentase biaya admin, dan biaya tetap. Simulasi ini hanya menghitung biaya admin — tanpa promo, diskon, atau biaya lainnya.</p></div>
       <div class="sim-panel">
-        <div class="sim-panel-head"><span>SELLING PRICE SIMULATOR</span><span class="live">● LIVE CALCULATION</span></div>
-        <div class="sim-field"><label for="netInput">Target net amount</label><div class="money-input"><span>Rp</span><input id="netInput" type="number" min="1" step="500" value="13500" inputmode="numeric"></div></div>
-        <div class="sim-two"><div class="sim-field"><label for="rateInput">Admin fee (%)</label><div class="money-input"><input id="rateInput" type="number" min="0" max="99.99" step="0.5" value="20" inputmode="decimal"><span>%</span></div></div><div class="sim-field"><label for="fixedInput">Fixed fee</label><div class="money-input"><span>Rp</span><input id="fixedInput" type="number" min="0" step="500" value="1000" inputmode="numeric"></div></div></div>
+        <div class="sim-panel-head"><span>SIMULASI HARGA JUAL</span><span class="live">● PERHITUNGAN LANGSUNG</span></div>
+        <div class="sim-field"><label for="netInput">Target harga net</label><div class="money-input"><span>Rp</span><input id="netInput" type="number" min="1" step="500" value="13500" inputmode="numeric"></div></div>
+        <div class="sim-two"><div class="sim-field"><label for="rateInput">Biaya admin (%)</label><div class="money-input"><input id="rateInput" type="number" min="0" max="99.99" step="0.5" value="20" inputmode="decimal"><span>%</span></div></div><div class="sim-field"><label for="fixedInput">Biaya tetap</label><div class="money-input"><span>Rp</span><input id="fixedInput" type="number" min="0" step="500" value="1000" inputmode="numeric"></div></div></div>
         <div class="sim-error" id="simError" aria-live="polite"></div>
-        <div class="sim-result" aria-live="polite"><small>RECOMMENDED SELLING PRICE</small><div class="sim-total" id="finalPrice">Rp 17,875</div><div class="sim-line"><span>Target net amount</span><strong id="netOutput">Rp 13,500</strong></div><div class="sim-line"><span>Total admin fee</span><strong id="feeOutput">Rp 4,375</strong></div></div>
-        <p class="sim-explain" id="formulaText">Formula: (Net amount ÷ (1 − admin fee rate)) + fixed fee. The result is rounded up to the nearest rupiah.</p>
+        <div class="sim-result" aria-live="polite"><small>HARGA JUAL YANG DISARANKAN</small><div class="sim-total" id="finalPrice">Rp 17,875</div><div class="sim-line"><span>Target harga net</span><strong id="netOutput">Rp 13,500</strong></div><div class="sim-line"><span>Total biaya admin</span><strong id="feeOutput">Rp 4,375</strong></div></div>
+        <p class="sim-explain" id="formulaText">Rumus: (Harga net ÷ (1 − persentase biaya admin)) + biaya tetap. Hasil dibulatkan ke atas ke rupiah terdekat.</p>
       </div>
     </div></section>
-    <section class="closing slide-section" id="download"><div class="wrap closing-box"><div><span class="kicker">AYDO · Merchant calculator</span><h2>Make every price count.</h2></div><a class="btn inverse" href="https://github.com/YosmerryGod/Xkalkultor/releases/download/v1.0.0/xkalkultor-release.apk" target="_blank" rel="noopener">Download the app <span>↗</span></a></div></section>
+    <section class="closing slide-section" id="download"><div class="wrap closing-box"><div><span class="kicker">AYDO · Kalkulator merchant</span><h2>Pastikan setiap harga berarti.</h2></div><a class="btn inverse" href="https://github.com/YosmerryGod/Xkalkultor/releases/download/v1.0.0/xkalkultor-release.apk" target="_blank" rel="noopener">Unduh aplikasi <span>↗</span></a></div></section>
   </main>
-  <footer class="slide-section"><div class="wrap footer"><div class="footer-brand">AYDO<span>.</span></div><div class="footer-copy">SMART PRICING FOR MERCHANTS.</div><div class="footer-copy">© <span id="year"></span> AYDO. ALL RIGHTS RESERVED.</div></div></footer>
+  <footer class="slide-section"><div class="wrap footer"><div class="footer-brand">AYDO<span>.</span></div><div class="footer-copy">HITUNG HARGA LEBIH TEPAT UNTUK MERCHANT.</div><div class="footer-copy">© <span id="year"></span> AYDO. HAK CIPTA DILINDUNGI.</div></div></footer>
   <script>
     const pageScroll=document.getElementById('pageScroll');
     const slideObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting&&entry.intersectionRatio>=0.55){document.querySelectorAll('.slide-section').forEach(slide=>slide.classList.remove('is-active'));entry.target.classList.add('is-active');}});},{root:pageScroll,threshold:[0.55,0.7]});
     document.querySelectorAll('.slide-section').forEach((slide,index)=>{if(index===0)slide.classList.add('is-active');slideObserver.observe(slide);});
     const root=document.documentElement;
     const themeToggle=document.getElementById('themeToggle');
-    function applyTheme(theme){root.dataset.theme=theme;themeToggle.textContent=theme==='dark'?'☾':'☼';themeToggle.setAttribute('aria-label',theme==='dark'?'Switch to light theme':'Switch to dark theme');document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#191e24':'#edf0f2';}
+    function applyTheme(theme){root.dataset.theme=theme;themeToggle.textContent=theme==='dark'?'☾':'☼';themeToggle.setAttribute('aria-label',theme==='dark'?'Ganti ke mode terang':'Ganti ke mode gelap');document.querySelector('meta[name="theme-color"]').content=theme==='dark'?'#191e24':'#edf0f2';}
     themeToggle.addEventListener('click',()=>applyTheme(root.dataset.theme==='dark'?'light':'dark'));
     applyTheme('light');
     const nav=document.getElementById('nav');
@@ -163,13 +164,13 @@
     const netOutput=document.getElementById('netOutput');
     const feeOutput=document.getElementById('feeOutput');
     const simError=document.getElementById('simError');
-    const rupiah=value=>'Rp '+Math.round(value).toLocaleString('en-US');
+    const rupiah=value=>'Rp '+Math.round(value).toLocaleString('id-ID');
     function updateSimulation(){
       const net=Number(netInput.value);
       const rate=Number(rateInput.value);
       const fixed=Number(fixedInput.value);
       if(!Number.isFinite(net)||!Number.isFinite(rate)||!Number.isFinite(fixed)||net<=0||rate<0||rate>=100||fixed<0){
-        simError.textContent='Check your inputs: net must be above 0, admin fee must be 0–99.99%, and fixed fee cannot be negative.';
+        simError.textContent='Periksa input: harga net harus lebih dari 0, biaya admin 0–99,99%, dan biaya tetap tidak boleh negatif.';
         finalPrice.textContent='—';netOutput.textContent='—';feeOutput.textContent='—';return;
       }
       const total=Math.ceil(net/(1-rate/100)+fixed);
